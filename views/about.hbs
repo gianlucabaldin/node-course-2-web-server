@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>some website</title>
+  </head>
+  <body>
+    {{> header}}
+    <p>
+      some text here
+    </p>
+    {{> footer}}    <!-- use the "footer" partial file in "/partials" which is loaded by the following instruction in server.js
+                         hbs.registerPartials(__dirname + '/views/partials'); -->
+  </body>
+</html>
