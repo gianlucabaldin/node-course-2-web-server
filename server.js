@@ -2,6 +2,8 @@ const express = require ('express');
 const hbs = require ('hbs');  //  "handlebars" template library as view engine
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; // "process.env" stores all system variavbles with key-value pairs, and PORT is the new environment port set from Heroku
+                                       //the "|| 3000" means of it's not found use a default of 3000
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');  // let hbs to use the partials, which are piece of hbs pages
@@ -79,6 +81,6 @@ app.get('/bad', (req, res) => {
 });
 
 
-app.listen(3000, () => {  // app start listening, bind the app to a port (3000) of the machine
-  console.log('server up on port 3000');
+app.listen(port, () => {  // app start listening, bind the app to a port (3000) of the machine
+  console.log(`server up on port ${port}`);
 }); // - second argument is a callback function says when the server is actually up and listening
