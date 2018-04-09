@@ -81,10 +81,10 @@ app.get('/bad', (req, res) => {
 });
 
 // create another root wich will be "localhost:3000/portfolio" with "portfolio.hbs" as response
-app.get('/portfolio', (req, res) => {
-  res.render('portfolio.hbs', {
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
     welcomeMessage: 'Welcome to portfolio page',
-    pageTitle: 'Portfolio'
+    pageTitle: 'Projects'
   });
 });
 
