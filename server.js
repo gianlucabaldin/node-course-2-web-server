@@ -27,9 +27,9 @@ app.use((req, res, next) => {
 // additional MIDDLEWARE management which renders a template without calling next() so the application stops here
 // note that we had already defined another MIDDLEWARE handler above, no problem, it has run (in fact it had written into both log and file) and it let the application
 // goes till here, which now stops it
-app.use((req, res, next) => {
-  res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs');
+// });
 
 // use middleware - express.static() takes the root of the folder you want to surve up
 app.use(express.static(__dirname + '/public'));  // "__dirname" takes "node-web-server + '/public' "
@@ -77,6 +77,14 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'unable to fullfill the request'
+  });
+});
+
+// create another root wich will be "localhost:3000/portfolio" with "portfolio.hbs" as response
+app.get('/portfolio', (req, res) => {
+  res.render('portfolio.hbs', {
+    welcomeMessage: 'Welcome to portfolio page',
+    pageTitle: 'Portfolio'
   });
 });
 
